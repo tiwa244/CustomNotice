@@ -3,14 +3,14 @@ local Player = game.Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
 -- Prevent re-execution
-if PlayerGui:FindFirstChild("FreakUI") then return end
+if PlayerGui:FindFirstChild("NoticeUI") then return end
 
 -- UI Setup
-local FreakUI = Instance.new("ScreenGui")
-FreakUI.Name = "FreakUI"
-FreakUI.IgnoreGuiInset = true
-FreakUI.ResetOnSpawn = false
-FreakUI.Parent = PlayerGui
+local NoticeUI = Instance.new("ScreenGui")
+NoticeUI.Name = "NoticeUI"
+NoticeUI.IgnoreGuiInset = true
+NoticeUI.ResetOnSpawn = false
+NoticeUI.Parent = PlayerGui
 
 -- Base Text
 local baseText = "Hello World!"
@@ -21,7 +21,7 @@ tempLabel.Size = UDim2.new(0, 0, 0, 0)
 tempLabel.Font = Enum.Font.SourceSansBold
 tempLabel.TextSize = 28
 tempLabel.Text = baseText
-tempLabel.Parent = FreakUI
+tempLabel.Parent = NoticeUI
 local textSize = tempLabel.TextBounds
 tempLabel:Destroy()
 
@@ -33,7 +33,7 @@ Frame.Size = UDim2.new(0, textSize.X + 40, 0, textSize.Y + 20)
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BackgroundTransparency = 0.2
 Frame.BorderSizePixel = 0
-Frame.Parent = FreakUI
+Frame.Parent = NoticeUI
 
 local Corner = Instance.new("UICorner")
 Corner.CornerRadius = UDim.new(0, 12)
@@ -64,4 +64,4 @@ TweenService:Create(Frame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.Easing
 }):Play()
 
 wait(0.35)
-FreakUI:Destroy()
+NoticeUI:Destroy()
